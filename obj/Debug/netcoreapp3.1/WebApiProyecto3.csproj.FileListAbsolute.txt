@@ -1,0 +1,5 @@
+C:\Users\Graciela Porras\source\repos\WebApiProyecto3\obj\Debug\netcoreapp3.1\WebApiProyecto3.csprojAssemblyReference.cache
+C:\Users\Graciela Porras\source\repos\WebApiProyecto3\obj\Debug\netcoreapp3.1\WebApiProyecto3.AssemblyInfoInputs.cache
+C:\Users\Graciela Porras\source\repos\WebApiProyecto3\obj\Debug\netcoreapp3.1\WebApiProyecto3.AssemblyInfo.cs
+C:\Users\Graciela Porras\source\repos\WebApiProyecto3\obj\Debug\netcoreapp3.1\WebApiProyecto3.csproj.CoreCompileInputs.cache
+C:\Users\Graciela Porras\source\repos\WebApiProyecto3\obj\Debug\netcoreapp3.1\WebApiProyecto3.MvcApplicationPartsAssemblyInfo.cache

@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\WebApiProyecto3",
+    "\\WebApiProyecto3\\Controllers",
+    "\\WebApiProyecto3\\obj",
+    "\\WebApiProyecto3\\obj\\Release",
+    "\\WebApiProyecto3\\obj\\Release\\netcoreapp2.1"
+  ],
+  "SelectedNode": "\\Controllers\\WeatherForecastController.cs",
+  "PreviewInSolutionExplorer": false
+}
