@@ -69,7 +69,37 @@ namespace WebApiProyecto3.Controllers
                 connection.Close();
             }
             return r;
+        }
 
+        [HttpPost]
+        [Route("iniciar")]
+        public Respuesta Iniciar([FromBody] Usuario usuario)
+        {
+            System.Diagnostics.Debug.WriteLine("**********usuario*************"+ usuario.Password);
+            Respuesta r = new Respuesta();
+            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = $"EXEC iniciar_centro_entrenamiento '{usuario.Nombre}','{usuario.Password}'";
+
+
+                using (var command = new SqlCommand(sql, connection))
+                {
+                    using (var dataReader = command.ExecuteReader())
+                    {
+
+                        while (dataReader.Read())
+                        {
+                            r.Resultado = dataReader["resultado"].ToString();
+
+                        }
+                    }
+                }
+                connection.Close();
+            }
+            return r;
         }
 
         // PUT api/values/5
