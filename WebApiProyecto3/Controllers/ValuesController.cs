@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using WebApiProyecto3.Models;
 using System.Data.SqlClient;
+using Microsoft.AspNetCore.Routing;
+using System.Data;
 
 namespace WebApiProyecto3.Controllers
 {
@@ -100,6 +102,62 @@ namespace WebApiProyecto3.Controllers
                 connection.Close();
             }
             return r;
+        }
+
+        [HttpPost]
+        [Route("loginCliente")]
+        public String loginCliente([FromBody]Cliente cliente)
+        {
+            String salida = "";
+
+            if (ModelState.IsValid)
+            {
+                string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string sqlQuery = $"EXEC login_clientes '{cliente.usuario}','{cliente.password}'";
+                    using (SqlCommand command = new SqlCommand(sqlQuery,connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            salida = reader[0].ToString();
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+
+            return salida;
+        }
+
+        [HttpPost]
+        [Route("registrarCliente")]
+        public String registrarCliente([FromBody] Cliente cliente)
+        {
+            String salida = "";
+            if (ModelState.IsValid)
+            {
+                string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string sqlQuery = $"EXEC registrar_clientes '{cliente.usuario}','{cliente.password}'";
+                    using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            salida = reader[0].ToString();
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+            return salida;
         }
 
         // PUT api/values/5
