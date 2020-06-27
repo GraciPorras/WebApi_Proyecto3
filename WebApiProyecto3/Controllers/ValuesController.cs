@@ -8,6 +8,7 @@ using WebApiProyecto3.Models;
 using System.Data.SqlClient;
 using Microsoft.AspNetCore.Routing;
 using System.Data;
+using System.Collections;
 
 namespace WebApiProyecto3.Controllers
 {
@@ -158,6 +159,41 @@ namespace WebApiProyecto3.Controllers
                 }
             }
             return salida;
+        }
+
+        [HttpGet]
+        [Route("consultarGimnasios")]
+        public List<Usuario> consultarClienteCentros()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+
+            if (ModelState.IsValid)
+            {
+                string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string sqlQuery = $"EXEC consultar_cliente_centros";
+                    using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Usuario temp = new Usuario();
+                            temp.id = reader[0].ToString();
+                            temp.Logo = reader[1].ToString();
+                            temp.Nombre = reader[2].ToString();
+                            temp.Ubicacion = reader[3].ToString();
+
+                            usuarios.Add(temp);
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+
+            return usuarios;
         }
 
         // PUT api/values/5
