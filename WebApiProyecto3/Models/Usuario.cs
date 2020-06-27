@@ -7,6 +7,7 @@ namespace WebApiProyecto3.Models
 {
     public class Usuario
     {
+        public string id { get; set; }
         public string Nombre { get; set; }
         public string Password { get; set; }
         public string Descripcion { get; set; }
