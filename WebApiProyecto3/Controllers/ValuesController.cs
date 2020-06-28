@@ -120,7 +120,7 @@ namespace WebApiProyecto3.Controllers
 
                             while (dataReader.Read())
                             {
-
+                                u.id = dataReader["idGYM"].ToString();
                                 u.Nombre = dataReader["NombreGYM"].ToString();
                                 u.Descripcion = dataReader["Descripcion"].ToString();
                                 u.Capacidad = dataReader["Capacidad"].ToString();
@@ -140,6 +140,7 @@ namespace WebApiProyecto3.Controllers
             }
             else
             {
+                u.id = "0";
                 u.Nombre = "0";
                 u.Descripcion = "0";
                 u.Capacidad = "0";
