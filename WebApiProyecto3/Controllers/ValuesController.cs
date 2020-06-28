@@ -183,33 +183,6 @@ namespace WebApiProyecto3.Controllers
             return salida;
         }
 
-        [HttpPost]
-        [Route("registrarCliente")]
-        public String registrarCliente([FromBody] Cliente cliente)
-        {
-            String salida = "";
-            if (ModelState.IsValid)
-            {
-                string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlQuery = $"EXEC registrar_clientes '{cliente.usuario}','{cliente.password}'";
-                    using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                    {
-                        command.CommandType = CommandType.Text;
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            salida = reader[0].ToString();
-                        }
-                        connection.Close();
-                    }
-                }
-            }
-            return salida;
-        }
-
         [HttpGet]
         [Route("consultarGimnasios")]
         public List<Usuario> consultarClienteCentros()
