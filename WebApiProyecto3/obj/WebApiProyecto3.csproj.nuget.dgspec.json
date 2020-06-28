@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UCR\\Progra\\Codigos C#\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj": {}
+    "C:\\Users\\Graciela Porras\\source\\repos\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj": {}
   },
   "projects": {
-    "D:\\UCR\\Progra\\Codigos C#\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj": {
+    "C:\\Users\\Graciela Porras\\source\\repos\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UCR\\Progra\\Codigos C#\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj",
+        "projectUniqueName": "C:\\Users\\Graciela Porras\\source\\repos\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj",
         "projectName": "WebApiProyecto3",
-        "projectPath": "D:\\UCR\\Progra\\Codigos C#\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj",
-        "packagesPath": "C:\\Users\\randa\\.nuget\\packages\\",
-        "outputPath": "D:\\UCR\\Progra\\Codigos C#\\WebApi_Proyecto3\\WebApiProyecto3\\obj\\",
+        "projectPath": "C:\\Users\\Graciela Porras\\source\\repos\\WebApi_Proyecto3\\WebApiProyecto3\\WebApiProyecto3.csproj",
+        "packagesPath": "C:\\Users\\Graciela Porras\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Graciela Porras\\source\\repos\\WebApi_Proyecto3\\WebApiProyecto3\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\randa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Graciela Porras\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,7 +69,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015135\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015115\\RuntimeIdentifierGraph.json"
         }
       }
     }

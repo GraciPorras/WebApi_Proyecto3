@@ -76,10 +76,11 @@ namespace WebApiProyecto3.Controllers
 
         [HttpPost]
         [Route("iniciar")]
-        public Respuesta Iniciar([FromBody] Usuario usuario)
+        public Usuario Iniciar([FromBody] Usuario usuario)
         {
-            System.Diagnostics.Debug.WriteLine("**********usuario*************"+ usuario.Password);
+            System.Diagnostics.Debug.WriteLine("**********usuario*************" + usuario.Password);
             Respuesta r = new Respuesta();
+            Usuario u = new Usuario();
             string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             using (var connection = new SqlConnection(connectionString))
             {
@@ -87,22 +88,70 @@ namespace WebApiProyecto3.Controllers
 
                 string sql = $"EXEC iniciar_centro_entrenamiento '{usuario.Nombre}','{usuario.Password}'";
 
-
                 using (var command = new SqlCommand(sql, connection))
                 {
+
                     using (var dataReader = command.ExecuteReader())
                     {
 
                         while (dataReader.Read())
                         {
                             r.Resultado = dataReader["resultado"].ToString();
-
                         }
                     }
                 }
                 connection.Close();
             }
-            return r;
+
+            if (r.Resultado == "1")
+            {
+
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string sql = $"EXEC info_CentrosEntrenamiento '{usuario.Nombre}','{usuario.Password}'";
+
+                    using (var command = new SqlCommand(sql, connection))
+                    {
+
+                        using (var dataReader = command.ExecuteReader())
+                        {
+
+                            while (dataReader.Read())
+                            {
+
+                                u.Nombre = dataReader["NombreGYM"].ToString();
+                                u.Descripcion = dataReader["Descripcion"].ToString();
+                                u.Capacidad = dataReader["Capacidad"].ToString();
+                                u.porcentaje = dataReader["PorcentajePermitido"].ToString();
+                                u.Logo = dataReader["Logo"].ToString();
+                                u.Ubicacion = dataReader["Ubicación"].ToString();
+                                u.Tel = dataReader["teléfono"].ToString();
+                                u.Correo = dataReader["Correo"].ToString();
+
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+
+                return u;
+            }
+            else
+            {
+                u.Nombre = "0";
+                u.Descripcion = "0";
+                u.Capacidad = "0";
+                u.porcentaje = "0";
+                u.Logo = "0";
+                u.Ubicacion = "0";
+                u.Tel = "0";
+                u.Correo = "0";
+
+                return u;
+            }
+
         }
 
         [HttpPost]
