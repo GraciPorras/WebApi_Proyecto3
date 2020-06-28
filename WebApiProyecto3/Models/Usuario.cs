@@ -14,9 +14,10 @@ namespace WebApiProyecto3.Models
         public string Ubicacion { get; set; }
         public string Tel { get; set; }
         public string Correo { get; set; }
-        public int Capacidad { get; set; }
-        public float porcentaje { get; set; }
+        public string Capacidad { get; set; }
+        public string porcentaje { get; set; }
         public string Logo { get; set; }
+
     }
 
 }
